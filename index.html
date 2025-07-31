@@ -1,49 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EMS Assistant</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دستیار EMS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <h2>لیست مشتریان</h2>
 <div id="customerList"></div>
 
 <body>
-  <header>
-    <img src="XBody-Logo-Floating1.png" alt="XBody Logo" class="logo" />
-    <h1>?? ?? EMS Assistant ??? ?????</h1>
-    <p>????? ?????? ?????? ?? ?????? ??????? ??????? EMS</p>
-  </header>
+    <header>
+        <h1>EMS Assistant</h1>
+        <p>🎯 به EMS Assistant خوش آمدید — همراه مربیان باشگاه در مدیریت حرفه‌ای مشتریان EMS</p>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>ثبت‌نام مشتری جدید</h2>
+            <form>
+                <label>نام و نام خانوادگی:</label>
+                <input type="text" name="fullname" required>
 
-  <main>
-    <section class="form-section">
-      <h2>??? ??? ????? ????</h2>
-      <form id="customer-form">
-        <label>??? ? ??? ????????:
-          <input type="text" id="name" required />
-        </label>
-        <label>????? ????:
-          <input type="tel" id="phone" required />
-        </label>
-        <label>???? ???????????:
-          <select id="package">
-            <option value="8">? ???????</option>
-            <option value="12">?? ???????</option>
-            <option value="16">?? ???????</option>
-            <option value="24">?? ???????</option>
-          </select>
-        </label>
-        <button type="submit">??? ?????</button>
-      </form>
-    </section>
+                <label>شماره تماس:</label>
+                <input type="text" name="phone" required>
 
-    <section class="list-section">
-      <h2>???? ???????</h2>
-      <ul id="customer-list"></ul>
-    </section>
-  </main>
+                <label>پکیج خریداری شده:</label>
+                <select name="package">
+                    <option value="8">۸ جلسه‌ای</option>
+                    <option value="16">۱۶ جلسه‌ای</option>
+                    <option value="24">۲۴ جلسه‌ای</option>
+                </select>
 
-  <script src="app.js"></script>
+                <button type="submit">ثبت اطلاعات</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
