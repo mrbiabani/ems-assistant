@@ -1,35 +1,36 @@
-// ???? ??????? ?? ????? ???? ????? ??????
-const form = document.getElementById("customer-form");
-const list = document.getElementById("customer-list");
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('registerForm');
+    const customerList = document.getElementById('customerList'); // لیست مشتری‌ها
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+    // بارگذاری مشتری‌ها از LocalStorage
+    const customers = JSON.parse(localStorage.getItem('customers')) || [];
+    renderCustomers(customers);
 
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const pkg = document.getElementById("package").value;
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-  if (name === "" || phone === "") {
-    alert("????? ???? ?????? ?? ?? ????.");
-    return;
-  }
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
 
-  const customer = {
-    name,
-    phone,
-    pkg,
-    createdAt: new Date().toLocaleDateString("fa-IR"),
-  };
+        const customer = { name, phone, email };
+        customers.push(customer);
+        localStorage.setItem('customers', JSON.stringify(customers));
 
-  addCustomerToList(customer);
-  form.reset();
+        renderCustomers(customers);
+        form.reset();
+    });
+
+    function renderCustomers(list) {
+        customerList.innerHTML = '';
+        list.forEach((c, i) => {
+            const item = document.createElement('div');
+            item.innerHTML = `
+                <div style="border: 1px solid #ccc; margin: 8px; padding: 10px;">
+                    <strong>${c.name}</strong> - ${c.phone} - ${c.email}
+                </div>
+            `;
+            customerList.appendChild(item);
+        });
+    }
 });
-
-function addCustomerToList(customer) {
-  const li = document.createElement("li");
-  li.innerHTML = `
-    <strong>${customer.name}</strong> - ?? ${customer.phone}<br/>
-    ???? ${customer.pkg} ??????? - ?? ??? ?? ${customer.createdAt}
-  `;
-  list.prepend(li);
-}
