@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -7,26 +6,24 @@
     <title>دستیار EMS</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<h2>لیست مشتریان</h2>
-<div id="customerList"></div>
-
 <body>
     <header>
-        <h1>EMS Assistant</h1>
+        <h1 style="color: crimson;">EMS Assistant</h1>
         <p>🎯 به EMS Assistant خوش آمدید — همراه مربیان باشگاه در مدیریت حرفه‌ای مشتریان EMS</p>
     </header>
+
     <main>
         <section class="form-section">
             <h2>ثبت‌نام مشتری جدید</h2>
-            <form>
+            <form id="registerForm">
                 <label>نام و نام خانوادگی:</label>
-                <input type="text" name="fullname" required>
+                <input type="text" id="name" required>
 
                 <label>شماره تماس:</label>
-                <input type="text" name="phone" required>
+                <input type="text" id="phone" required>
 
                 <label>پکیج خریداری شده:</label>
-                <select name="package">
+                <select id="email">
                     <option value="8">۸ جلسه‌ای</option>
                     <option value="16">۱۶ جلسه‌ای</option>
                     <option value="24">۲۴ جلسه‌ای</option>
@@ -34,6 +31,11 @@
 
                 <button type="submit">ثبت اطلاعات</button>
             </form>
+        </section>
+
+        <section class="list-section">
+            <h2>لیست مشتریان</h2>
+            <div id="customerList"></div>
         </section>
     </main>
 </body>
